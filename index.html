@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Ti ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Corações flutuantes (gerados por JS) -->
+  <div id="hearts-container" aria-hidden="true"></div>
+
+  <!-- Conteúdo principal -->
+  <main class="page">
+    <!-- Hero -->
+    <header class="hero">
+      <p class="hero-eyebrow">Uma mensagem especial</p>
+      <h1 class="hero-title">Para Ti</h1>
+      <p class="hero-subtitle">Com todo o meu amor</p>
+      <div class="hero-heart" id="main-heart" title="Clica em mim">❤️</div>
+      <p class="hero-hint">Clica no coração</p>
+    </header>
+
+    <!-- Mensagem principal (revelada ao clicar no coração) -->
+    <section class="main-message" id="main-message" hidden>
+      <div class="letter">
+        <p class="letter-greeting">Olá, meu amor…</p>
+        <p>
+          Queria criar um cantinho só nosso, simples e cheio de carinho,
+          para te lembrar o quanto és importante para mim.
+        </p>
+        <p>
+          Cada dia ao teu lado é um presente. Obrigado por seres exatamente
+          como és — o meu lugar favorito no mundo.
+        </p>
+        <p class="letter-closing">Com todo o meu coração,<br />Eu ❤️</p>
+      </div>
+    </section>
+
+    <!-- Cartões de mensagens interativas -->
+    <section class="messages-section">
+      <h2 class="section-title">Pequenas verdades sobre ti</h2>
+      <p class="section-desc">Clica em cada cartão para descobrir</p>
+
+      <div class="cards-grid">
+        <article class="msg-card" data-message="Tu és a minha paz nos dias mais agitados. Só a tua presença já me acalma.">
+          <div class="card-front">
+            <span class="card-icon">🌸</span>
+            <span class="card-label">A minha paz</span>
+          </div>
+          <div class="card-back">
+            <p></p>
+          </div>
+        </article>
+
+        <article class="msg-card" data-message="O teu sorriso tem o poder de transformar completamente o meu dia. É o meu sol.">
+          <div class="card-front">
+            <span class="card-icon">☀️</span>
+            <span class="card-label">O teu sorriso</span>
+          </div>
+          <div class="card-back">
+            <p></p>
+          </div>
+        </article>
+
+        <article class="msg-card" data-message="Adoro a forma como me fazes sentir em casa, mesmo quando estamos longe. És o meu porto seguro.">
+          <div class="card-front">
+            <span class="card-icon">🏡</span>
+            <span class="card-label">Meu porto seguro</span>
+          </div>
+          <div class="card-back">
+            <p></p>
+          </div>
+        </article>
+
+        <article class="msg-card" data-message="Comigo podes ser exatamente quem és. Sem máscaras, sem pressões. Eu amo-te assim.">
+          <div class="card-front">
+            <span class="card-icon">🤍</span>
+            <span class="card-label">Sem máscaras</span>
+          </div>
+          <div class="card-back">
+            <p></p>
+          </div>
+        </article>
+
+        <article class="msg-card" data-message="Cada momento contigo fica guardado no meu coração. Quero criar muitos mais ao teu lado.">
+          <div class="card-front">
+            <span class="card-icon">⏳</span>
+            <span class="card-label">Momentos</span>
+          </div>
+          <div class="card-back">
+            <p></p>
+          </div>
+        </article>
+
+        <article class="msg-card" data-message="Tu és a razão pela qual acredito que o amor verdadeiro existe. Obrigado por seres tu.">
+          <div class="card-front">
+            <span class="card-icon">✨</span>
+            <span class="card-label">Amor verdadeiro</span>
+          </div>
+          <div class="card-back">
+            <p></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Botão surpresa -->
+    <section class="surprise-section">
+      <button type="button" class="btn-surprise" id="btn-surprise">
+        💖 Clica para uma chuva de corações
+      </button>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <p>Feito com amor, só para ti.</p>
+      <p class="footer-note">Podes editar todos os textos no ficheiro index.html</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
