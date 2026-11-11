@@ -1,107 +1,109 @@
-/* ===== Configuração fácil de personalizar ===== */
+/* ===== Configuração ===== */
 const CONFIG = {
-  // Quantos corações flutuantes continuamente
-  floatingHeartsCount: 18,
-  // Duração mínima e máxima da animação de subida (segundos)
-  floatDurationMin: 8,
-  floatDurationMax: 16,
-  // Quantos corações na chuva de surpresa
-  rainCount: 45,
+  floatingCount: 20,
+  floatDurationMin: 9,
+  floatDurationMax: 17,
+  rainCount: 55,
 };
 
-/* ===== Elementos ===== */
 const heartsContainer = document.getElementById("hearts-container");
 const mainHeart = document.getElementById("main-heart");
-const mainMessage = document.getElementById("main-message");
 const btnSurprise = document.getElementById("btn-surprise");
 const msgCards = document.querySelectorAll(".msg-card");
+const tulips = document.querySelectorAll(".tulip");
+const tulipMessage = document.getElementById("tulip-message");
+const tulipText = document.getElementById("tulip-text");
 
-/* ===== Corações flutuantes contínuos ===== */
-function createFloatingHeart() {
-  const heart = document.createElement("span");
-  heart.className = "floating-heart";
-  heart.textContent = Math.random() > 0.3 ? "❤️" : "💕";
+/* ===== Partículas flutuantes (corações + tulipas) ===== */
+function createFloatingParticle() {
+  const el = document.createElement("span");
+  el.className = "floating-heart";
+  const r = Math.random();
+  el.textContent = r > 0.55 ? "❤️" : r > 0.25 ? "💕" : "🌷";
 
-  // Posição horizontal aleatória
-  heart.style.left = Math.random() * 100 + "%";
+  el.style.left = Math.random() * 100 + "%";
+  const size = 0.75 + Math.random() * 1.15;
+  el.style.fontSize = size + "rem";
 
-  // Tamanho ligeiramente aleatório
-  const size = 0.8 + Math.random() * 1.1;
-  heart.style.fontSize = size + "rem";
-
-  // Duração e atraso
   const duration =
     CONFIG.floatDurationMin +
     Math.random() * (CONFIG.floatDurationMax - CONFIG.floatDurationMin);
-  heart.style.animationDuration = duration + "s";
-  heart.style.animationDelay = Math.random() * 4 + "s";
+  el.style.animationDuration = duration + "s";
+  el.style.animationDelay = Math.random() * 3.5 + "s";
 
-  heartsContainer.appendChild(heart);
-
-  // Remover depois de animar para não acumular DOM
-  setTimeout(() => {
-    heart.remove();
-  }, (duration + 5) * 1000);
+  heartsContainer.appendChild(el);
+  setTimeout(() => el.remove(), (duration + 5) * 1000);
 }
 
-function startFloatingHearts() {
-  // Criar o número inicial
-  for (let i = 0; i < CONFIG.floatingHeartsCount; i++) {
-    setTimeout(() => createFloatingHeart(), i * 350);
+function startFloating() {
+  for (let i = 0; i < CONFIG.floatingCount; i++) {
+    setTimeout(() => createFloatingParticle(), i * 320);
   }
-  // Continuar a criar periodicamente
-  setInterval(createFloatingHeart, 900);
+  setInterval(createFloatingParticle, 850);
 }
 
-/* ===== Chuva de corações (surpresa) ===== */
+/* ===== Chuva de corações e tulipas ===== */
 function createHeartRain() {
+  const symbols = ["❤️", "💕", "💗", "💖", "🌷", "💘"];
   for (let i = 0; i < CONFIG.rainCount; i++) {
     setTimeout(() => {
-      const heart = document.createElement("span");
-      heart.className = "heart-rain";
-      heart.textContent = ["❤️", "💕", "💗", "💖", "💘"][
-        Math.floor(Math.random() * 5)
-      ];
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = 1 + Math.random() * 1.4 + "rem";
-      const duration = 2.2 + Math.random() * 2.5;
-      heart.style.animationDuration = duration + "s";
-      document.body.appendChild(heart);
-
-      setTimeout(() => heart.remove(), duration * 1000 + 200);
-    }, i * 45);
+      const el = document.createElement("span");
+      el.className = "heart-rain";
+      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.fontSize = 1.1 + Math.random() * 1.5 + "rem";
+      const duration = 2.3 + Math.random() * 2.6;
+      el.style.animationDuration = duration + "s";
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), duration * 1000 + 250);
+    }, i * 40);
   }
 }
 
-/* ===== Coração principal → revela carta ===== */
+/* ===== Coração principal ===== */
 mainHeart.addEventListener("click", () => {
-  mainMessage.hidden = false;
-  // Pequena chuva ao revelar
   createHeartRain();
-  // Scroll suave até à carta
-  setTimeout(() => {
-    mainMessage.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, 150);
+  const carta = document.getElementById("carta");
+  if (carta) {
+    setTimeout(() => {
+      carta.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 200);
+  }
 });
 
-/* ===== Cartões interativos (flip) ===== */
+/* ===== Cartões flip ===== */
 msgCards.forEach((card) => {
   const message = card.dataset.message;
   const backP = card.querySelector(".card-back p");
-  if (backP && message) {
-    backP.textContent = message;
-  }
+  if (backP && message) backP.textContent = message;
 
   card.addEventListener("click", () => {
     card.classList.toggle("flipped");
   });
 });
 
+/* ===== Jardim de tulipas ===== */
+tulips.forEach((tulip) => {
+  tulip.addEventListener("click", () => {
+    const msg = tulip.dataset.msg;
+    if (!msg) return;
+
+    tulips.forEach((t) => t.classList.remove("opened"));
+    tulip.classList.add("opened");
+
+    tulipText.textContent = msg;
+    tulipMessage.hidden = false;
+
+    tulipMessage.style.animation = "none";
+    void tulipMessage.offsetWidth;
+    tulipMessage.style.animation = "fade-up 0.45s ease";
+  });
+});
+
 /* ===== Botão surpresa ===== */
 btnSurprise.addEventListener("click", () => {
   createHeartRain();
-  // Pequena vibração visual no botão
-  btnSurprise.style.transform = "scale(0.95)";
+  btnSurprise.style.transform = "scale(0.94)";
   setTimeout(() => {
     btnSurprise.style.transform = "";
   }, 180);
@@ -109,5 +111,5 @@ btnSurprise.addEventListener("click", () => {
 
 /* ===== Iniciar ===== */
 document.addEventListener("DOMContentLoaded", () => {
-  startFloatingHearts();
+  startFloating();
 });
