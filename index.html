@@ -3,122 +3,203 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Ti ❤️</title>
+  <title>Para a Filipa 🌷</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Corações flutuantes (gerados por JS) -->
   <div id="hearts-container" aria-hidden="true"></div>
 
-  <!-- Conteúdo principal -->
+  <nav class="top-nav">
+    <a href="#inicio">Início</a>
+    <a href="#carta">Carta</a>
+    <a href="#razoes">Razões</a>
+    <a href="#tulipas">Tulipas</a>
+    <a href="#momentos">Momentos</a>
+  </nav>
+
   <main class="page">
-    <!-- Hero -->
-    <header class="hero">
-      <p class="hero-eyebrow">Uma mensagem especial</p>
-      <h1 class="hero-title">Para Ti</h1>
-      <p class="hero-subtitle">Com todo o meu amor</p>
+    <header class="hero" id="inicio">
+      <div class="hero-decoration">🌷</div>
+      <p class="hero-eyebrow">Uma declaração especial</p>
+      <h1 class="hero-title">Para a Filipa</h1>
+      <p class="hero-subtitle">A pessoa que faz o meu mundo mais colorido</p>
       <div class="hero-heart" id="main-heart" title="Clica em mim">❤️</div>
-      <p class="hero-hint">Clica no coração</p>
+      <p class="hero-hint">Clica no coração para começar</p>
+      <div class="scroll-hint">↓ desliza para descobrir ↓</div>
     </header>
 
-    <!-- Mensagem principal (revelada ao clicar no coração) -->
-    <section class="main-message" id="main-message" hidden>
-      <div class="letter">
-        <p class="letter-greeting">Olá, meu amor…</p>
+    <section class="section letter-section" id="carta">
+      <div class="section-header">
+        <span class="section-icon">💌</span>
+        <h2 class="section-title">Uma carta só para ti</h2>
+        <p class="section-desc">Escrita com o coração</p>
+      </div>
+
+      <div class="letter" id="main-message">
+        <p class="letter-greeting">Filipa,</p>
         <p>
-          Queria criar um cantinho só nosso, simples e cheio de carinho,
-          para te lembrar o quanto és importante para mim.
+          Queria criar um cantinho só nosso — um lugar bonito, suave e cheio
+          de carinho — para te lembrar o quanto és importante para mim.
         </p>
         <p>
-          Cada dia ao teu lado é um presente. Obrigado por seres exatamente
-          como és — o meu lugar favorito no mundo.
+          Assim como as tulipas abrem com o sol, tu iluminas os meus dias.
+          Cada sorriso teu, cada conversa, cada momento ao teu lado fica
+          guardado no meu coração como algo precioso.
         </p>
-        <p class="letter-closing">Com todo o meu coração,<br />Eu ❤️</p>
+        <p>
+          Obrigado por seres exatamente como és. Obrigado por me fazeres
+          sentir em casa. Obrigado por existires na minha vida.
+        </p>
+        <p class="letter-closing">
+          Com todo o meu amor,<br />
+          <span class="signature">Eu ❤️</span>
+        </p>
+        <div class="letter-tulips">🌷 🌷 🌷</div>
       </div>
     </section>
 
-    <!-- Cartões de mensagens interativas -->
-    <section class="messages-section">
-      <h2 class="section-title">Pequenas verdades sobre ti</h2>
-      <p class="section-desc">Clica em cada cartão para descobrir</p>
+    <section class="section reasons-section" id="razoes">
+      <div class="section-header">
+        <span class="section-icon">✨</span>
+        <h2 class="section-title">Porque gosto tanto de ti</h2>
+        <p class="section-desc">Clica em cada cartão para descobrir</p>
+      </div>
 
       <div class="cards-grid">
-        <article class="msg-card" data-message="Tu és a minha paz nos dias mais agitados. Só a tua presença já me acalma.">
+        <article class="msg-card" data-message="Tu és a minha paz nos dias mais agitados. Só a tua presença já me acalma e me faz sentir que tudo vai correr bem.">
           <div class="card-front">
             <span class="card-icon">🌸</span>
             <span class="card-label">A minha paz</span>
+            <span class="card-tap">toca para ler</span>
           </div>
-          <div class="card-back">
-            <p></p>
-          </div>
+          <div class="card-back"><p></p></div>
         </article>
 
-        <article class="msg-card" data-message="O teu sorriso tem o poder de transformar completamente o meu dia. É o meu sol.">
+        <article class="msg-card" data-message="O teu sorriso tem o poder de transformar completamente o meu dia. É o meu sol — mesmo nos dias nublados.">
           <div class="card-front">
             <span class="card-icon">☀️</span>
             <span class="card-label">O teu sorriso</span>
+            <span class="card-tap">toca para ler</span>
           </div>
-          <div class="card-back">
-            <p></p>
-          </div>
+          <div class="card-back"><p></p></div>
         </article>
 
-        <article class="msg-card" data-message="Adoro a forma como me fazes sentir em casa, mesmo quando estamos longe. És o meu porto seguro.">
+        <article class="msg-card" data-message="Adoro a forma como me fazes sentir em casa, mesmo quando estamos longe. És o meu porto seguro e o meu lugar favorito.">
           <div class="card-front">
             <span class="card-icon">🏡</span>
             <span class="card-label">Meu porto seguro</span>
+            <span class="card-tap">toca para ler</span>
           </div>
-          <div class="card-back">
-            <p></p>
-          </div>
+          <div class="card-back"><p></p></div>
         </article>
 
-        <article class="msg-card" data-message="Comigo podes ser exatamente quem és. Sem máscaras, sem pressões. Eu amo-te assim.">
+        <article class="msg-card" data-message="Comigo podes ser exatamente quem és. Sem máscaras, sem pressões. Eu gosto de ti assim — real, verdadeira e única.">
           <div class="card-front">
             <span class="card-icon">🤍</span>
             <span class="card-label">Sem máscaras</span>
+            <span class="card-tap">toca para ler</span>
           </div>
-          <div class="card-back">
-            <p></p>
-          </div>
+          <div class="card-back"><p></p></div>
         </article>
 
-        <article class="msg-card" data-message="Cada momento contigo fica guardado no meu coração. Quero criar muitos mais ao teu lado.">
+        <article class="msg-card" data-message="Cada momento contigo fica guardado no meu coração. Quero criar muitos mais ao teu lado — dias, noites e memórias.">
           <div class="card-front">
             <span class="card-icon">⏳</span>
             <span class="card-label">Momentos</span>
+            <span class="card-tap">toca para ler</span>
           </div>
-          <div class="card-back">
-            <p></p>
-          </div>
+          <div class="card-back"><p></p></div>
         </article>
 
-        <article class="msg-card" data-message="Tu és a razão pela qual acredito que o amor verdadeiro existe. Obrigado por seres tu.">
+        <article class="msg-card" data-message="Tu és a razão pela qual acredito que o amor verdadeiro existe. Obrigado por seres tu, Filipa.">
           <div class="card-front">
             <span class="card-icon">✨</span>
             <span class="card-label">Amor verdadeiro</span>
+            <span class="card-tap">toca para ler</span>
           </div>
-          <div class="card-back">
-            <p></p>
-          </div>
+          <div class="card-back"><p></p></div>
         </article>
       </div>
     </section>
 
-    <!-- Botão surpresa -->
-    <section class="surprise-section">
-      <button type="button" class="btn-surprise" id="btn-surprise">
-        💖 Clica para uma chuva de corações
-      </button>
+    <section class="section tulips-section" id="tulipas">
+      <div class="section-header">
+        <span class="section-icon">🌷</span>
+        <h2 class="section-title">O teu jardim de tulipas</h2>
+        <p class="section-desc">Cada tulipa guarda uma mensagem. Clica nelas.</p>
+      </div>
+
+      <div class="tulip-garden" id="tulip-garden">
+        <button class="tulip" data-msg="Como as tulipas, tu trazes cor e elegância a tudo o que tocas.">🌷</button>
+        <button class="tulip" data-msg="Adoro que gostes de tulipas — são delicadas, fortes e bonitas. Tal como tu.">🌷</button>
+        <button class="tulip" data-msg="Se eu pudesse, enchia o teu quarto de tulipas todos os dias.">🌷</button>
+        <button class="tulip" data-msg="A tua forma de ver o mundo faz-me querer ser uma pessoa melhor.">🌷</button>
+        <button class="tulip" data-msg="Obrigado por me deixares fazer parte da tua vida.">🌷</button>
+        <button class="tulip" data-msg="Filipa, és a minha flor favorita.">🌷</button>
+        <button class="tulip" data-msg="Quero continuar a crescer ao teu lado, estação após estação.">🌷</button>
+        <button class="tulip" data-msg="Mesmo nos dias difíceis, penso em ti e tudo fica mais leve.">🌷</button>
+      </div>
+
+      <div class="tulip-message" id="tulip-message" hidden>
+        <p id="tulip-text"></p>
+      </div>
     </section>
 
-    <!-- Rodapé -->
+    <section class="section moments-section" id="momentos">
+      <div class="section-header">
+        <span class="section-icon">🌙</span>
+        <h2 class="section-title">O que quero para nós</h2>
+        <p class="section-desc">Pequenas promessas do coração</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot">1</div>
+          <div class="timeline-content">
+            <h3>Continuar a rir juntos</h3>
+            <p>Quero muitos mais momentos em que o tempo parece parar só porque estamos a conversar e a rir.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">2</div>
+          <div class="timeline-content">
+            <h3>Cuidar um do outro</h3>
+            <p>Nos bons e nos dias mais difíceis — estar presente, ouvir e apoiar.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">3</div>
+          <div class="timeline-content">
+            <h3>Criar memórias</h3>
+            <p>Passeios, conversas até tarde, surpresas pequenas e momentos que ficam para sempre.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">4</div>
+          <div class="timeline-content">
+            <h3>Crescer juntos</h3>
+            <p>Apoiar os teus sonhos e partilhar os meus. Ser equipa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section surprise-section">
+      <div class="final-box">
+        <p class="final-quote">“Tu és a minha tulipa preferida.”</p>
+        <p class="final-name">— Para a Filipa</p>
+        <button type="button" class="btn-surprise" id="btn-surprise">
+          🌷 Clica para uma chuva de tulipas e corações
+        </button>
+      </div>
+    </section>
+
     <footer class="footer">
-      <p>Feito com amor, só para ti.</p>
-      <p class="footer-note">Podes editar todos os textos no ficheiro index.html</p>
+      <p>Feito com amor, só para ti, Filipa.</p>
+      <p class="footer-note">Cada detalhe deste site foi pensado a pensar em ti 🌷</p>
     </footer>
   </main>
 
